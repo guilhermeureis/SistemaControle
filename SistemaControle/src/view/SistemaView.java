@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Guilherme
@@ -38,10 +40,25 @@ public class SistemaView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnClientes.setText("Clientes");
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Cadastrar");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         menuCadClientes.setText("Cliente");
+        menuCadClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuCadClientesActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuCadClientes);
 
         jMenuBar1.add(jMenu1);
@@ -49,11 +66,26 @@ public class SistemaView extends javax.swing.JFrame {
         jMenu2.setText("Pesquisar");
 
         menuPesqClientes.setText("Clientes");
+        menuPesqClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuPesqClientesActionPerformed(evt);
+            }
+        });
         jMenu2.add(menuPesqClientes);
 
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Sair");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -78,9 +110,35 @@ public class SistemaView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        new ClienteView().show();
+    }//GEN-LAST:event_btnClientesActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void menuCadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadClientesActionPerformed
+        new ClienteView().show();
+    }//GEN-LAST:event_menuCadClientesActionPerformed
+
+    private void menuPesqClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPesqClientesActionPerformed
+        new PesquisaClientesView().show();
+    }//GEN-LAST:event_menuPesqClientesActionPerformed
+
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+   
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        String mgs = "Deseja sair do sistema?";     
+        int opcao;
+        opcao = JOptionPane.showConfirmDialog(null, mgs, "Sistema", JOptionPane.YES_NO_OPTION);
+        if(opcao == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jMenu3MouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

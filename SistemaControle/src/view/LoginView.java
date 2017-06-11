@@ -102,26 +102,35 @@ public class LoginView extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String login = textLogin.getText();
         char[] senha = textSenha.getPassword();
+        boolean flag1 = true;
         
         try{
-            
+        
             LoginController lc = new LoginController();
             ArrayList<Login> loginList = lc.buscarLoginSenha();
             for(Login l : loginList){
-                if(l.getLogSenha().equalsIgnoreCase(login) && l.getLogSenha().equalsIgnoreCase(new String(senha))){
-                    System.out.println("Login Válido");
-                    
+                if(l.getLogNome().equalsIgnoreCase(login) && l.getLogSenha().equalsIgnoreCase(new String(senha))){
+                    System.out.println("Login Validado");
+
                     this.dispose();
                     SistemaView sistema = new SistemaView();
                     sistema.setVisible(true);
                     sistema.setLocationRelativeTo(null);
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "O usuario ou a senha estão invalidos", "Erro",JOptionPane.ERROR_MESSAGE);
+                    flag1 = false;
                 }
             }
+            if(flag1){                
+                JOptionPane.showMessageDialog(null, "O usuario ou a senha são inválidos", "Erro"
+                        , JOptionPane.ERROR_MESSAGE);
+                flag1 = false;
+                this.dispose();
+                LoginView sistema = new LoginView();
+                sistema.setVisible(true);
+                sistema.setLocationRelativeTo(null);
+            }
+            
         }catch(SQLException e){
-            e.printStackTrace();
+               e.printStackTrace();
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
