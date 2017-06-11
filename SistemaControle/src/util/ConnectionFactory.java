@@ -10,7 +10,7 @@ public class ConnectionFactory {
     
     private static final String usuario = "root";
     private static final String senha = "reis2009";
-    private static final String url = "jdbc:mysql://localhost:3306/teste";
+    private static final String url = "jdbc:mysql://localhost:3306/mydb";
     
     public static Connection getConexao(){
         Connection conexao = null;
