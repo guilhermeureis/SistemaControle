@@ -6,6 +6,7 @@
 package view;
 
 import controller.LoginController;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.Login;
@@ -125,8 +126,8 @@ public class LoginView extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "O usuario ou a senha estão invalidos", "Erro",JOptionPane.ERROR_MESSAGE);
                 }
             }
-        }catch{
-            
+        }catch(SQLException e){
+            e.printStackTrace();
         }
         
     }//GEN-LAST:event_btnLoginActionPerformed
