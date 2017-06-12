@@ -5,6 +5,9 @@
  */
 package view;
 
+import controller.ClienteController;
+import java.sql.Date;
+import model.Cliente;
 import util.OperacoesCrud;
 
 /**
@@ -153,6 +156,11 @@ public class ClienteView extends javax.swing.JFrame {
         });
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnAtualizar.setText("Atualizar");
 
@@ -269,6 +277,22 @@ public class ClienteView extends javax.swing.JFrame {
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        String nome = txtNome.getText();
+        String cpf = txtCPF.getText();
+        String fone = txtFone.getText();
+        Date dataNascimento = new Date(txtDtNascimento.getDate().getTime());
+        
+        Cliente cliente = new Cliente();
+        cliente.setNome(nome);
+        cliente.setCpf(cpf);
+        cliente.setFone(fone);
+        cliente.setDataNascimento(dataNascimento);
+        
+        ClienteController clienteC = new ClienteController();
+        //if(operacao == oeracoes)
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
      * @param args the command line arguments
