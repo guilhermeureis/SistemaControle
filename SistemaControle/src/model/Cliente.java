@@ -5,14 +5,10 @@ import java.sql.Date;
 public class Cliente {
     private String nome;
     private String cpf;
-    private char sexo;
+    private String sexo;
     private Date dataNascimento;
     private String fone;
 
-    public Cliente() {
-        
-    }
-    
     public String getNome() {
         return nome;
     }
@@ -29,11 +25,11 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
@@ -52,7 +48,7 @@ public class Cliente {
     public void setFone(String fone) {
         this.fone = fone;
     }
-    
+
     
     
 }

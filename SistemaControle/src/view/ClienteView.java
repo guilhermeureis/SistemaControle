@@ -7,6 +7,9 @@ package view;
 
 import controller.ClienteController;
 import java.sql.Date;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Cliente;
 import util.OperacoesCrud;
 
@@ -16,9 +19,8 @@ import util.OperacoesCrud;
  */
 public class ClienteView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ClienteView
-     */
+    public Integer operacao;
+    
     public ClienteView() {
         initComponents();
     }
@@ -113,18 +115,24 @@ public class ClienteView extends javax.swing.JFrame {
 
         jLabel5.setText("Fone: ");
 
+        txtNome.setEditable(false);
+        txtNome.setEnabled(false);
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
 
+        txtCPF.setEditable(false);
+        txtCPF.setEnabled(false);
         txtCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCPFActionPerformed(evt);
             }
         });
 
+        txtFone.setEditable(false);
+        txtFone.setEnabled(false);
         txtFone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFoneActionPerformed(evt);
@@ -163,6 +171,8 @@ public class ClienteView extends javax.swing.JFrame {
         });
 
         btnAtualizar.setText("Atualizar");
+
+        txtDtNascimento.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -288,10 +298,17 @@ public class ClienteView extends javax.swing.JFrame {
         cliente.setNome(nome);
         cliente.setCpf(cpf);
         cliente.setFone(fone);
+        //cliente.setSexo(sexo);
         cliente.setDataNascimento(dataNascimento);
         
         ClienteController clienteC = new ClienteController();
-        //if(operacao == oeracoes)
+        if(operacao == OperacoesCrud.NOVO.getOperacao()){
+            try {
+                clienteC.cadastrar(cliente);
+            } catch (SQLException ex) {
+                Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     /**
@@ -323,6 +340,7 @@ public class ClienteView extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new ClienteView().setVisible(true);
             }
@@ -354,9 +372,9 @@ public class ClienteView extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void abrirCampos() {
-           txtNome.setEditable(true);
-           txtCPF.setEditable(true);
-           txtFone.setEditable(true);
+           txtNome.setEnabled(true);
+           txtCPF.setEnabled(true);
+           txtFone.setEnabled(true);
            txtDtNascimento.setEnabled(true);
     }
 }
