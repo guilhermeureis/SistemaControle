@@ -12,7 +12,7 @@ public class ClienteDao extends Dao<Cliente>{
     @Override
     public boolean cadastrar(Cliente cliente) throws SQLException {
         PreparedStatement ps = null;
-        String sql = "INSERT INTO clientes (nomeCliente,cpfCliente,sexoCliente,dtNascimentoCliente,FoneCliente) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO cliente (nomeCliente,cpfCliente,sexoCliente,dtNascimentoCliente,FoneCliente) VALUES (?,?,?,?,?)";
         try{
             Connection conn = this.obterConexao();
             try{

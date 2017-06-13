@@ -8,6 +8,7 @@ package view;
 import controller.ClienteController;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Cliente;
@@ -263,9 +264,9 @@ public class ClienteView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        Integer operacao = OperacoesCrud.NOVO.getOperacao();
+        operacao = OperacoesCrud.NOVO.getOperacao();
         
-        abrirCampos();
+        abrirCamposEditaveis();
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void txtCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFActionPerformed
@@ -302,9 +303,20 @@ public class ClienteView extends javax.swing.JFrame {
         cliente.setDataNascimento(dataNascimento);
         
         ClienteController clienteC = new ClienteController();
-        if(operacao == OperacoesCrud.NOVO.getOperacao()){
+        
+        /*
+        try {
+                clienteC.cadastrar(cliente);
+                System.out.println("Cadastro realiZADO COM SUCESSO");
+            } catch (SQLException ex) {
+                Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        */
+        if(Objects.equals(operacao, OperacoesCrud.NOVO.getOperacao())){
+            System.out.println("ENTREI AQUI...");
             try {
                 clienteC.cadastrar(cliente);
+                System.out.println("Cadastro realiZADO COM SUCESSO");
             } catch (SQLException ex) {
                 Logger.getLogger(ClienteView.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -371,7 +383,10 @@ public class ClienteView extends javax.swing.JFrame {
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 
-    private void abrirCampos() {
+    private void abrirCamposEditaveis() {
+           txtNome.setEditable(true);
+           txtCPF.setEditable(true);
+           txtFone.setEditable(true);
            txtNome.setEnabled(true);
            txtCPF.setEnabled(true);
            txtFone.setEnabled(true);
