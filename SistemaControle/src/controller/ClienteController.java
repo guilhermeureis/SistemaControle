@@ -9,6 +9,7 @@ public class ClienteController extends Dao<Cliente>{
 
     @Override
     public boolean cadastrar(Cliente cliente) throws SQLException{
+        
         boolean resultado = false;
         ClienteDao clienteDao = new ClienteDao();
         if(clienteDao.cadastrar(cliente)){
@@ -18,13 +19,24 @@ public class ClienteController extends Dao<Cliente>{
     }
 
     @Override
-    public boolean atualizar(Cliente pojo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean atualizar(Cliente cliente) throws SQLException {
+        
+        boolean resultado = false;
+        ClienteDao clienteDao = new ClienteDao();
+        if(clienteDao.atualizar(cliente)){
+            resultado =true;
+        }
+        return resultado;
     }
 
     @Override
-    public boolean remover(Cliente pojo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean remover(Cliente cliente) throws SQLException {
+        boolean resultado = false;
+        ClienteDao clienteDao = new ClienteDao();
+        if(clienteDao.remover(cliente)){
+            resultado =true;
+        }
+        return resultado;
     }
 
     @Override

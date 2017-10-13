@@ -1,13 +1,13 @@
 package controller;
 
-import dao.LoginDao;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import model.Login;
 
-public class LoginController {
-    
-    public ArrayList<Login> buscarLoginSenha() throws SQLException{
-        return LoginDao.buscarLogin();
-    }
+public class LoginController
+{
+  public LoginController() {}
+  
+  public java.util.ArrayList<Login> buscarLoginSenha() throws java.sql.SQLException
+  {
+    return dao.LoginDao.buscarLogin();
+  }
 }

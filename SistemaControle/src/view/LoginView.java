@@ -111,7 +111,6 @@ public class LoginView extends javax.swing.JFrame {
             for(Login l : loginList){
                 if(l.getLogNome().equalsIgnoreCase(login) && l.getLogSenha().equalsIgnoreCase(new String(senha))){
                     System.out.println("Login Validado");
-
                     this.dispose();
                     SistemaView sistema = new SistemaView();
                     sistema.setVisible(true);

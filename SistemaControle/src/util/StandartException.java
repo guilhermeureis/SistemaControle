@@ -1,14 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package util;
 
-/**
- *
- * @author Guilherme
- */
-class StandartException extends Exception {
-    
+class StandartException extends Exception{
+  
+  public StandartException(String arg0)
+  {
+    super(arg0);
+  }
+  
+  public StandartException(Throwable arg0) { super(arg0); }
+  
+  public StandartException(String arg0, Throwable arg1) {
+    super(arg0, arg1);
+  }
 }

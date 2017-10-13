@@ -64,6 +64,11 @@ public class SistemaView extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Pesquisar");
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
+            }
+        });
 
         menuPesqClientes.setText("Clientes");
         menuPesqClientes.addActionListener(new java.awt.event.ActionListener() {
@@ -97,32 +102,36 @@ public class SistemaView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(247, Short.MAX_VALUE))
+                .addContainerGap(483, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addComponent(btnClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addContainerGap(310, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        this.dispose();
         new ClienteView().show();
     }//GEN-LAST:event_btnClientesActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        new ClienteView().show();
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void menuCadClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadClientesActionPerformed
+        this.dispose();
         new ClienteView().show();
     }//GEN-LAST:event_menuCadClientesActionPerformed
 
     private void menuPesqClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPesqClientesActionPerformed
+        this.dispose();
         new PesquisaClientesView().show();
     }//GEN-LAST:event_menuPesqClientesActionPerformed
 
@@ -138,6 +147,10 @@ public class SistemaView extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+        
+    }//GEN-LAST:event_jMenu2ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
