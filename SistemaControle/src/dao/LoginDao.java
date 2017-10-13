@@ -9,10 +9,6 @@ import model.Login;
 import util.ConnectionFactory;
 
 
-
-
-
-
 public class LoginDao
 {
   public LoginDao() {}

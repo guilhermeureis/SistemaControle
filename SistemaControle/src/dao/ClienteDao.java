@@ -15,7 +15,7 @@ public class ClienteDao extends Dao<Cliente>
   public boolean cadastrar(Cliente cliente) throws SQLException
   {
     PreparedStatement ps = null;
-    String sql = "INSERT INTO cliente (nomeCliente,cpfCliente,sexoCliente,dtNascimentoCliente,FoneCliente) VALUES (?,?,?,?,?)";
+    String sql = "INSERT INTO cliente (nomeCliente,cpfCliente,sexoCliente,dtNascimentoCliente,foneCliente) VALUES (?,?,?,?,?)";
     try {
       Connection conn = obterConexao();
       try {
