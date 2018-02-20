@@ -6,8 +6,13 @@
 package view;
 
 import controller.LoginController;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Login;
 
@@ -51,6 +56,11 @@ public class LoginView extends javax.swing.JFrame {
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
+            }
+        });
+        btnLogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnLoginKeyPressed(evt);
             }
         });
 
@@ -101,11 +111,23 @@ public class LoginView extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String login = textLogin.getText();
-        char[] senha = textSenha.getPassword();
+        String senhaString = new String(textSenha.getPassword()).trim();
         boolean flag1 = true;
         
         try{
-        
+            
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte messageDigest[] = md.digest(senhaString.getBytes("UTF-8"));
+            
+            StringBuilder sb = new StringBuilder();
+            
+            for(byte b : messageDigest){
+                sb.append(String.format("%02X", 0xFF & b));
+            }
+            
+            String senha = sb.toString();
+            
+            
             LoginController lc = new LoginController();
             ArrayList<Login> loginList = lc.buscarLoginSenha();
             for(Login l : loginList){
@@ -130,8 +152,16 @@ public class LoginView extends javax.swing.JFrame {
             
         }catch(SQLException e){
                e.printStackTrace();
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(LoginView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnLoginKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLoginKeyPressed
 
     /**
      * @param args the command line arguments

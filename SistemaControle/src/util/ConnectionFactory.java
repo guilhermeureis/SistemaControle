@@ -16,7 +16,7 @@ public class ConnectionFactory
   {
     Connection conexao = null;
     try {
-      conexao = java.sql.DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "reis2009");
+      conexao = java.sql.DriverManager.getConnection(url, usuario, senha);
     } catch (Exception e) {
       javax.swing.JOptionPane.showMessageDialog(null, "Erro de Conexão: " + e.getMessage(), "Erro", 0);
     }
