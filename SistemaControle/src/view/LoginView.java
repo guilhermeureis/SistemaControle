@@ -27,6 +27,7 @@ public class LoginView extends javax.swing.JFrame {
      */
     public LoginView() {
         initComponents();
+        //getRootPane().setDefaultButton(btnLogin);
     }
 
     /**
@@ -65,6 +66,11 @@ public class LoginView extends javax.swing.JFrame {
         });
 
         btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,7 +153,7 @@ public class LoginView extends javax.swing.JFrame {
                 this.dispose();
                 LoginView sistema = new LoginView();
                 sistema.setVisible(true);
-                sistema.setLocationRelativeTo(null);
+                
             }
             
         }catch(SQLException e){
@@ -160,8 +166,14 @@ public class LoginView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnLoginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnLoginKeyPressed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnLoginKeyPressed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        this.dispose();
+        LoginView sistema = new LoginView();
+        sistema.setVisible(true);
+    }//GEN-LAST:event_btnLimparActionPerformed
 
     /**
      * @param args the command line arguments
