@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,7 +24,7 @@ public class ClienteDao extends Dao<Cliente>
         ps.setString(1, cliente.getNome());
         ps.setString(2, cliente.getCpf());
         ps.setString(3, cliente.getSexo());
-        ps.setDate(4, cliente.getDataNascimento());
+        ps.setDate(4, (Date) cliente.getDataNascimento());
         ps.setString(5, cliente.getFone());
         ps.executeUpdate();
       } finally {
@@ -52,7 +53,7 @@ public class ClienteDao extends Dao<Cliente>
         ps.setString(1, cliente.getNome());
         ps.setString(2, cliente.getCpf());
         ps.setString(3, cliente.getSexo());
-        ps.setDate(4, cliente.getDataNascimento());
+        ps.setDate(4, (Date) cliente.getDataNascimento());
         ps.setString(5, cliente.getFone());
         ps.setInt(6, cliente.getCodigo());
         ps.executeUpdate();
