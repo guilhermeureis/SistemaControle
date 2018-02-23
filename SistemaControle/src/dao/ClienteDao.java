@@ -38,7 +38,8 @@ public class ClienteDao extends Dao<Cliente>
     }
     catch (Exception e)
     {
-      return false;
+        System.out.println(e.getMessage());
+        return false;
     }
   }
   
@@ -84,6 +85,7 @@ public class ClienteDao extends Dao<Cliente>
     }
     catch (Exception e)
     {
+        e.printStackTrace();
       return false;
     }
     return true;
